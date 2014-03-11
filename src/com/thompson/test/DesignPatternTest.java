@@ -1,5 +1,6 @@
 package com.thompson.test;
 
+import com.thompson.builder.BuilderPattern;
 import com.thompson.factory.abstractfactory.Product1Factory;
 import com.thompson.factory.abstractfactory.Provider;
 import com.thompson.factory.config.FactoryInstanceTypes;
@@ -58,6 +59,17 @@ public class DesignPatternTest {
 		instance1.sayHello();
 		instance2.sayHello();
 		instance3.sayHello();
+		
+		/**
+		 * Builder test
+		 */
+		BuilderPattern builder = new BuilderPattern();
+		builder.produceProduct1(10);
+		builder.produceProduct2(10);
+		
+		/**
+		 * Prototype test
+		 */
 	}
 
 }

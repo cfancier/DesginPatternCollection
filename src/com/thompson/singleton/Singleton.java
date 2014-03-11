@@ -1,5 +1,7 @@
 package com.thompson.singleton;
 
+import java.util.Vector;
+
 /**
  * singleton
  * 
@@ -8,6 +10,13 @@ package com.thompson.singleton;
  */
 public class Singleton {
 	private static Singleton ins = null;
+	@SuppressWarnings("rawtypes")
+	private Vector properties = null;
+	
+	@SuppressWarnings("rawtypes")
+	public Vector getProperties() {
+		return properties;
+	}
 	
 	private Singleton() {
 		System.out.println("singleton instance has been established!");
@@ -63,5 +72,13 @@ public class Singleton {
 	
 	public void sayHello() {
 		System.out.println("Hello, I am a singleton!" + this.toString());
+	}
+	
+	/**
+	 * synchronizing updating the properties of the singleton instance
+	 */
+	public void updateProperties() {
+		Singleton shadow = new Singleton();
+		properties = shadow.getProperties();
 	}
 }
